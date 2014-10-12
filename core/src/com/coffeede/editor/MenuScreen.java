@@ -26,7 +26,7 @@ public class MenuScreen extends BaseScreen {
 		// Build widgets
 		Table table = game.ui.table().top();
 		Label titleLabel = game.ui.label("Chapter Editor", 60, Color.YELLOW);
-		TextButton newButton = game.ui.button("New", 60, editScreen);
+		TextButton newButton = game.ui.button("New", 60);
 		TextButton loadButton = game.ui.button("Load", 60);
 		TextButton backButton = game.ui.button("Back to Game", 42, game.mainMenuScreen);
 
@@ -42,6 +42,14 @@ public class MenuScreen extends BaseScreen {
 		table.row();
 
 		stage.addActor(table);
+
+		newButton.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				editScreen.makeEmpty();
+				game.setScreen(editScreen);
+			}
+		});
 
 		loadButton.addListener(new ClickListener() {
 			@Override

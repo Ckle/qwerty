@@ -1,5 +1,6 @@
 package com.coffeede.editor;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -43,8 +44,10 @@ public class FileScreen extends BaseScreen {
 		fileChooser = game.ui.fileChooser(42, Color.WHITE, "chapters", new Listener() {
 			@Override
 			public void choose(FileHandle file) {
-
+				menuScreen.editScreen.loadChapter(file.name());
+				game.setScreen(menuScreen.editScreen);
 			}
+
 			@Override
 			public void choose(Array<FileHandle> files) {
 				if (files.size == 1) {
@@ -52,6 +55,7 @@ public class FileScreen extends BaseScreen {
 					game.setScreen(menuScreen.editScreen);
 				}
 			}
+
 			@Override
 			public void cancel() {
 				game.setScreen(menuScreen);

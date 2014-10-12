@@ -49,6 +49,11 @@ public class EditScreen extends BaseScreen {
 		stage.addActor(table);
 	}
 
+	public void makeEmpty() {
+		nameField.setText("");
+		chapterText.setText("");
+	}
+
 	public void loadChapter(String path) {
 		chapter = new Chapter(path);
 		if (chapter.load()) {

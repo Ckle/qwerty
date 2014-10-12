@@ -10,7 +10,7 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		com.coffeede.game.QwertyGame game = new QwertyGame(new FileSystemStub());
+		com.coffeede.game.QwertyGame game = new QwertyGame(new DesktopFileSystem());
 
 		// Desktop-specific application configuration
 		config.title = "Qwerty";
